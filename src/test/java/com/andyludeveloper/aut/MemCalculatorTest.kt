@@ -12,4 +12,13 @@ class MemCalculatorTest {
         val result = SUT.sum()
         assertEquals(0 ,result)
     }
+    @Test
+    fun add_WhenCalled_ChangesSum() {
+        val SUT = MemCalculator()
+        SUT.add(1)
+        val result = SUT.sum()
+        assertEquals(1 ,result)
+    }
+
+
 }
