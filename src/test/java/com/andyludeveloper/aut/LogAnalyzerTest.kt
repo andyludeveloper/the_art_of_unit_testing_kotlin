@@ -9,4 +9,7 @@ import kotlin.test.assertFailsWith
 
 class LogAnalyzerTest{
 
+    internal class AlwaysValidFakeExtensionManager : IExtensionManager{
+        override fun isValid(filename: String?): Boolean = true
+    }
 }
