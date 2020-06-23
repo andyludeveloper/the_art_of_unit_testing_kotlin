@@ -1,10 +1,10 @@
 package com.andyludeveloper.aut
 
-interface IFileExtensionManager {
+interface IExtensionManager {
     fun isValid(filename: String?): Boolean
 }
 
-class FileExtensionManager : IFileExtensionManager {
+class FileExtensionManager : IExtensionManager {
 
     override fun isValid(filename:String?):Boolean{
         filename?:throw IllegalArgumentException("filename has to be provided")
