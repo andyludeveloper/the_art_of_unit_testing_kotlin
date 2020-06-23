@@ -1,8 +1,12 @@
 package com.andyludeveloper.aut
 
-class FileExtensionManager {
+interface IFileExtensionManager {
+    fun isValid(filename: String?): Boolean
+}
 
-    fun isValid(filename:String?):Boolean{
+class FileExtensionManager : IFileExtensionManager {
+
+    override fun isValid(filename:String?):Boolean{
         filename?:throw IllegalArgumentException("filename has to be provided")
         if(!filename.endsWith(".SLF", true)){
             return false
