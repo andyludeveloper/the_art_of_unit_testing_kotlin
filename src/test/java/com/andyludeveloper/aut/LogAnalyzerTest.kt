@@ -1,15 +1,20 @@
 package com.andyludeveloper.aut
 
-import org.hamcrest.CoreMatchers.`is`
 import org.junit.Assert.*
 import org.junit.Test
-import java.lang.IllegalArgumentException
-import kotlin.test.assertFailsWith
-
 
 class LogAnalyzerTest{
+    @Test
+    fun isValidFileName_NameSupportedExtension_ReturnsTrue(){
+        val manager = FakeValidFakeExtensionManager()
+        manager.valid = true
+        val SUT = LogAnalyzer(manager)
+        val result =SUT.isValidLogFileName("short.ext")
+        assertTrue(result)
+    }
 
-    internal class AlwaysValidFakeExtensionManager : IExtensionManager{
-        override fun isValid(filename: String?): Boolean = true
+    internal class FakeValidFakeExtensionManager : IExtensionManager{
+        var valid = false
+        override fun isValid(filename: String?): Boolean = valid
     }
 }
