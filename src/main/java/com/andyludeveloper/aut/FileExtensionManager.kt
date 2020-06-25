@@ -1,9 +1,5 @@
 package com.andyludeveloper.aut
 
-interface IExtensionManager {
-    fun isValid(filename: String?): Boolean
-}
-
 class FileExtensionManager : IExtensionManager {
 
     override fun isValid(filename:String?):Boolean{

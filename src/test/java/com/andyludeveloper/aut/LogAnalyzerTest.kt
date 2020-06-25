@@ -22,6 +22,16 @@ class LogAnalyzerTest{
         val result =SUT.isValidLogFileName("short.ext")
         assertTrue(result)
     }
+    @Test
+    fun isValidFileName_factory_design_pattern_ReturnsTrue(){
+        val manager = FakeValidFakeExtensionManager()
+        manager.valid = true
+        ExtensionManagerFactory.manager = manager
+
+        val SUT = LogAnalyzer()
+        val result = SUT.isValidLogFileName("short.ext")
+        assertTrue(result)
+    }
 
     internal class FakeValidFakeExtensionManager : IExtensionManager{
         var valid = false

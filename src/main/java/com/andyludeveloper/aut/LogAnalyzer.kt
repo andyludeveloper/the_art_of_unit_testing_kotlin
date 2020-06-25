@@ -1,13 +1,14 @@
 package com.andyludeveloper.aut
 
 class LogAnalyzer {
-    var manager:IExtensionManager
+    var manager: IExtensionManager
+
     constructor(manager: IExtensionManager){
         this.manager = manager
     }
 
     constructor(){
-        this.manager = FileExtensionManager()
+        this.manager = ExtensionManagerFactory.manager
     }
 
     fun isValidLogFileName(filename:String?):Boolean{
