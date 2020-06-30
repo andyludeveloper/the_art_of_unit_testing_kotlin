@@ -37,14 +37,17 @@ class LogAnalyzerTest{
     fun overrideTest() {
         val stub = FakeValidFakeExtensionManager()
         stub.valid = true
-        val logan = TestableLogAnalyzer(stub)
+        val logan = TestableLogAnalyzer()
+        logan.isValid = true
         val result = logan.isValidLogFileName("file.ext")
         assertTrue(result)
     }
 
-    internal class TestableLogAnalyzer(manager: IExtensionManager): LogAnalyzerUsingFactoryMethod() {
-        init {
-            this.manager = manager
+    internal class TestableLogAnalyzer: LogAnalyzerUsingFactoryMethod() {
+        var isValid:Boolean = false
+
+        override fun isValid(filename: String): Boolean {
+            return isValid
         }
     }
 
